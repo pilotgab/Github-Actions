@@ -1,10 +1,13 @@
 name: First Workflowflows
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 
 jobs:
   run-shell-commands:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: echo a string
         run: echo "hello world"
@@ -13,8 +16,24 @@ jobs:
         run: |
           node -v 
           npm -v
-      - name: echo a strig second time
+      - name: echo a string second time
         run: echo "the lord is good"
+
+  parallel-Job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: view SW Verson
+        run: sw_vers
+
+  dependants-job:
+    runs-on: windows-latest
+    needs: run-shell-commands
+    steps:
+      - name: echo a string
+        run: Write-Output "Windows string"
+      - name: Error Step
+        run: dosenotexits
+
 
 
 
