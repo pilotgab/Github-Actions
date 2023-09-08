@@ -32,7 +32,7 @@ jobs:
       - name: echo a string
         run: |
           sudo apt install wget git unzip -y
-          sudo apt update 
+          
         
 
 
