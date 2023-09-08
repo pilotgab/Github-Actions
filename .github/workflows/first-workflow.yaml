@@ -30,7 +30,7 @@ jobs:
     needs: run-shell-commands
     steps:
       - name: echo a string
-        run: apt install wget git unzip -y
+        run: sudo apt install wget git unzip -y
 
 
 
