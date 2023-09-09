@@ -13,4 +13,4 @@ jobs:
         run: echo "::error::missing semicolon"
 
       - name: printing string
-        run: echo "this is the error message"
+        run: echo "this is the error messages"
