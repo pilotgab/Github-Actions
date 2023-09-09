@@ -10,7 +10,7 @@ jobs:
         uses: action/checkout@v4
       - name: List Files After
         run: ls -a
-      - name: checkout
+      - name: manual checkout
         run: |
           git init
           git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
