@@ -1,0 +1,13 @@
+name: workflow cammands
+on:
+  push:
+    branches:
+      - manin
+
+
+jobs:
+  testing-wf-cammmands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setting an error maessage
+        run: echo "::error::missing semicolon"
