@@ -1,0 +1,17 @@
+name: shell command & workingdir
+on: [push]
+
+
+jobs:
+
+  shell_coomand_working-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: present working dir
+        run: pwd
+      - name: list all content in pwd
+        run: |
+          ls 
+          ls -a
+      - name: permistions on the files
+        run: ls -l
