@@ -2,7 +2,7 @@ name: workflow cammands
 on:
   push:
     branches:
-      - manin
+      - main
 
 
 jobs:
@@ -12,3 +12,5 @@ jobs:
       - name: setting an error maessage
         run: echo "::error::missing semicolon"
 
+      - name: printing string
+        run: echo "this is the error message"
