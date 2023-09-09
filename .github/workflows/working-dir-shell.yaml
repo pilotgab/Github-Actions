@@ -13,5 +13,5 @@ jobs:
         run: |
           ls 
           ls -a
-      - name: permistions on the files
+      - name: permistion on the files
         run: ls -l
