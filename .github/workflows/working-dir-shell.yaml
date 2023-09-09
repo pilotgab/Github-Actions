@@ -1,9 +1,5 @@
-name: shell command & workingdir
 on: [push]
-
-
 jobs:
-
   shell_coomand_working-dir:
     runs-on: ubuntu-latest
     steps:
@@ -15,9 +11,29 @@ jobs:
           ls -a
       - name: permistion on the files
         run: ls -l
-
       - name: github workspace
         run: |
           echo $GITHUB_WORKSPACE
           echo $GITHUB_REPOSITORY 
           echo $GITHUB_SHA
+      - name: change-working-directory
+        working-directory: /home/runner
+        run: |
+          pwd
+          mkdir apple
+          ls -a
+          ls -l
+  Diplay-working-directory-on-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: working dir
+        run: | 
+          Get-Location 
+          dir 
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:$GITHUB_WORKSPACE
+          
