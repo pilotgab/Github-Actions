@@ -1,4 +1,4 @@
-ame: Simple-Action
+name: Simple-Action
 on: [push]
 
 jobs:
