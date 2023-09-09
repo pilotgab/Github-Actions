@@ -9,7 +9,7 @@ jobs:
         run: ls -a
         uses: action/checkout@v4
       - name: List Files After
-              run: ls -a
+        run: ls -a
       - name: checkout
         run: |
           git init
