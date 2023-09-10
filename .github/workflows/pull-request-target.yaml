@@ -6,7 +6,7 @@ jobs:
   pre-commet:
     runs-on: ubuntu-latest
     steps:
-      - name : comment on New PRT
+      - name : comment on New PRTT
         uses: actions/github-scrip@v6
         with:
           script: |
