@@ -13,7 +13,7 @@ jobs:
           echo ${{ null }}
           echo ${{ true }}
           echo ${{ 1 > 2 }}
-          echo ${{ 'string' = 'string' }}
+          echo ${{ 'string' == 'string' }}
           echo ${{ true && false }} 
           echo ${{ true || (false && true) }}
       - name: Dump Contexts
