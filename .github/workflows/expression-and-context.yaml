@@ -3,6 +3,15 @@ on: [push, pull_request, issues, workflow_dispatch]
 run-name: "Epression & contest by @${{ github.actor }}, event: ${{ github.event_name }}"
 
 jobs:
+  runs-on-issues-and-prs:
+    runs-on: ubuntu-latest
+    if: contains(fromJson('["pull_request, "issues"]'), github.event_name)
+    steps:
+      - name: Run only if issue have a bug labes
+        if: contains(github.event.issue.labels.*.name, 'bug')
+        run: |
+          echo ${{ join(github.event.issue.labels.*.name), ' , ' }}
+
   expressions:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
