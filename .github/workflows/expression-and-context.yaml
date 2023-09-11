@@ -5,6 +5,7 @@ run-name: "Epression & contest by @${{ github.actor }}, event: ${{ github.event_
 jobs:
   expressions:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: expressions
         id: expressions
