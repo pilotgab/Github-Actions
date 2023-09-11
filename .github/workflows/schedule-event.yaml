@@ -1,0 +1,15 @@
+name: schedule event
+on:
+  schedule:
+    - cron: "0 12 * * *"
+    - cron: "0/5 * * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stake@v8
+        with:
+          stale-issue-message: "this is some message"
+          days-before-stale: 1
+          days-before-close: 5
