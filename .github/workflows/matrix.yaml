@@ -2,13 +2,29 @@ name: Matrix
 on: [push]
 jobs:
   node-matrix:
+    continue-on-error: false   # prevernt  the workfloy from failing if  any job in our  workflow fails
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
         node-version: [14, 15, 16]
+        include:
+          - os: ubuntu-latest
+            is-ubuntu: true
+          - os: macOS-latest
+            node-version: 15
+          - experimental: false
+          - os: ubuntu-latest
+            node-version: 16
+            experimental: true
+        exclude:
+          - os: ubuntu-latest
+            node-version: 14
+      fail-fast: false   #if any job in our matrix fail other jobs are going to conitnue execution
+      #max-parallel: 3    # total number of job to rub in parallel
     runs-on: ${{ matrix.os }}
     steps:
       - run: node -v
+      - run: echo '${{ toJson(matrix) }}'
       - uses: actions/setup-node@v3
         with:
          node-version: ${{ matrix.node-version }}
