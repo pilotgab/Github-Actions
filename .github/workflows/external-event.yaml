@@ -1,0 +1,9 @@
+name: external-event
+on:
+  repository_dispatch:
+jobs:
+  external-event:
+    runs-on: ubuntu-latest
+    name: print a string
+    steps:
+      - run: echo "Repository Dispatch"

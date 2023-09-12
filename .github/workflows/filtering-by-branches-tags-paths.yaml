@@ -1,0 +1,32 @@
+name: Repository Events
+on:
+  push:
+    branches:
+      - main
+      - "feature/*" # runs on any branch with name feature/eatA, or feature/feat/B.
+      - "!feature/featA" #ignors branches with feature/featA
+    #branches-ignore:
+    #  - feature/featA
+    tags:
+      - v1.*     # match with v1.1 , v1.2, v1.3 etc
+      - "!v1.2" # excluding v1.2
+
+    paths:
+      - "**.js"
+      - "apps.js" # excluding this java script file from trigering this workflows to run
+  pull_request:
+    types: [opened, assigned, reopened,synchronize]
+    branches:
+      - main
+    paths:
+      - "**.js" #  this will only when when there is changes in java-script file
+  issues:
+    types: [opened]
+jobs:
+  checkout-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
+      - uses: actions/checkout@v3
