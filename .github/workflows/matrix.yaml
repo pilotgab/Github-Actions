@@ -19,10 +19,12 @@ jobs:
         exclude:
           - os: ubuntu-latest
             node-version: 14
-      fail-fast: false   #if any job in our matrix fail other jobs are going to conitnue execution
+      fail-fast: true   #if any job in our matrix fail other jobs are going to be canciled if set true
       #max-parallel: 3    # total number of job to rub in parallel
     runs-on: ${{ matrix.os }}
     steps:
+      - if: matrix.experimental == true
+        run: exit 1
       - run: node -v
       - run: echo '${{ toJson(matrix) }}'
       - uses: actions/setup-node@v3
