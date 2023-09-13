@@ -11,7 +11,8 @@ jobs:
     uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
     with:
       name: 'Ali'
-    secrets: inherit
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN }}
 
   generate-output:
     runs-on: ubuntu-latest
