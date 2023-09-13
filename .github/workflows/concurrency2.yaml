@@ -1,4 +1,5 @@
 name: Concurrency 2
+run-name: Concurrency 2 (${{ inputs.environment }})
 on:
   workflow_dispatch:
     inputs:
@@ -6,9 +7,12 @@ on:
         description: "Environment"
         type: environment
         required: true
-
+concurrency:
+  group: ${{ github.event.inputs.environment }}  #this will run parallel job in different environment
+  cancel-in-progress: true
 jobs:
   sleep:
     runs-on: ubuntu-latest
     steps:
       - run: sleep 30
+
