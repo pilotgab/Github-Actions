@@ -7,6 +7,12 @@ on:
         value: ${{ jobs.generate-output.outputs.date }}
 
 jobs:
+  nested-workflow-call:
+    uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
+    with:
+      name: 'Ali'
+    secrets: inherit
+
   generate-output:
     runs-on: ubuntu-latest
     outputs:

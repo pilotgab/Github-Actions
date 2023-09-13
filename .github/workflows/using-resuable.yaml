@@ -8,16 +8,23 @@ on:
         default: "Ali"
         required: false
 jobs:
+  nested-workflow-call:
+    uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
+    with:
+      name: 'Ali'
+    secrets: inherit
+
   calling-a-reusable-wf:
     uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
     with:
       name: ${{ inputs.name }}
     secrets:
       access-token: ${{ secrets.ACCESS_TOKEN }}
+
   calling-a-reusable-wf-in-same-repo:
     uses: ./.github/workflows/reusable-workflow.yaml
-    secrets: inherit
-
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN }}
 
   using-reusable-wf-output:
     runs-on: ubuntu-latest
