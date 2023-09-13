@@ -25,9 +25,9 @@ jobs:
           'node-version': contest.payload.inputs['node-version'].split(',')"
           result-encoding: json
       - run: echo '${{ steps.matrix-arrays.outputs.result }}'
-      - run: echo "step-outputs=value " >> $GITHUB_OUTPUT
+      - run: echo "step-output=value " >> $GITHUB_OUTPUT
         id: step-1
-      - run: echo "step-outputs=value 2" >> $GITHUB_OUTPUT
+      - run: echo "step-output=value 2" >> $GITHUB_OUTPUT
         id: step-2
       - run: |
           echo '${{ steps.step-1.outputs.step-output }}'
