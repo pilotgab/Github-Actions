@@ -9,7 +9,7 @@ on:
         required: false
 jobs:
   calling-a-reusable-wf:
-    uses: captaingab/.github/workflows/reusable-workflow.yaml@main
+    uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
     with:
       name: ${{ inputs.name }}
     secrets:
