@@ -1,0 +1,22 @@
+name: Reusable Workflow
+on:
+  workflow_call:
+    outputs:
+      date:
+        description: "Date Value"
+        value: ${{ jobs.generate-output.outputs.date }}
+
+jobs:
+  nested-workflow-call:
+      uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
+      with:
+        name: 'Ali'
+      secrets: inherit
+
+  generate-output:
+    runs-on: ubuntu-latest
+    outputs:
+      date: ${{ steps.date-step.outputs.date }}
+    steps:
+      - run: echo "date=$(date)" >> $GITHUB_OUTPUT
+        id: date-step
