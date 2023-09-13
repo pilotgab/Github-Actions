@@ -15,9 +15,16 @@ jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "step-outpute=value " >> $GITHUB_OUTPUT
+      - uses: actions/github-scrip@v6
+        id: matrix-arrays
+        with:
+          script: "return {os: context.payload.inputs['os'].split(',')}, 
+          'node-version': contest.payload.inputs['node-version'].split(',')"
+          result-encoding: json
+      - run: echo '${{ matrix-arrays.outputs.result }}'
+      - run: echo "step-outputs=value " >> $GITHUB_OUTPUT
         id: step-1
-      - run: echo "step-outpute=value 2" >> $GITHUB_OUTPUT
+      - run: echo "step-outputs=value 2" >> $GITHUB_OUTPUT
         id: step-2
       - run: |
           echo '${{ steps.step-1.outputs.step-output }}'
