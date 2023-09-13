@@ -8,6 +8,7 @@ on:
         default: "Ali"
         required: false
 jobs:
+
   calling-a-reusable-wf:
     uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
     with:
