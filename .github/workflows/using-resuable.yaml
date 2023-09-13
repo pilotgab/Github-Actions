@@ -8,11 +8,6 @@ on:
         default: "Ali"
         required: false
 jobs:
-  nested-workflow-call:
-    uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
-    with:
-      name: 'Ali'
-    secrets: inherit
 
   calling-a-reusable-wf:
     uses: pilotgab/captaingab/.github/workflows/reusable-workflow.yaml@main
