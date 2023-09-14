@@ -43,8 +43,8 @@ jobs:
           entrypoint: cat
           args: text.txt
       - uses: actions/checkout@v3
-        run: chmod +x ./script/script.sh
       - name: Run a bash script
+        run: chmod +x ./script/script.sh
         uses: docker://node:18.16-alpine3.17
         with:
           entrypoint: ./script/script.sh
