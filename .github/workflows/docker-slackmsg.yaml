@@ -7,7 +7,7 @@ jobs:
       image: node:20.3-alpine3.17
       # credentials:
       #   username:
-      #   password:######
+      #   password:
       env:
         API_URL: some-url.com
       ports:
@@ -16,7 +16,7 @@ jobs:
       #   - vol_name:/path/in/container
       #   - /path/to/container
       #   - /path/in/host:/path/in/container
-      # options: --cpus 1####
+      # options: --cpus 1
     steps:
       - name: Log Node & OS Versions
         run: |
