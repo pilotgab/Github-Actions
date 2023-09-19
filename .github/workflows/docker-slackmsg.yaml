@@ -7,7 +7,7 @@ jobs:
       image: node:20.3-alpine3.17
       # credentials:
       #   username:
-      #   password:
+      #   password:######
       env:
         API_URL: some-url.com
       ports:
