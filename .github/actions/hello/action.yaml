@@ -1,14 +1,14 @@
 name: Hello World 
 author: Captaingab
-discription: "geet someone and record the time"
+description: "geet someone and record the time"
 inputs: 
   who_to_greet:
-    discription: "who to greet"
+    description: "who to greet"
     required: true
     default: "world"
 outputs:
   time:
-    discription: the time of the greeting
+    description: the time of the greeting
 runs:
   using: "node16"
   main: index.js
