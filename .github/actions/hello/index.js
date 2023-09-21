@@ -4,7 +4,7 @@ const { error } = require("./dist");
 
 
 try {
-    throw new error('some error message')
+    throw new Error('some error message')
     core.debug("Debug Message");
     core.warning("waning message");
     core.error("Error message");
